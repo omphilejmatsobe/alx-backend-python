@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 
+"""
     Coroutine that executes async_comprehension four times
     in parallel using asyncio.
 """
