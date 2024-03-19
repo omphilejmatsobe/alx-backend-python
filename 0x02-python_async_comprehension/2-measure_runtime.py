@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
     Coroutine that executes async_comprehension four times
     in parallel using asyncio.
@@ -14,7 +15,7 @@ async def measure_runtime() -> float:
     """ measures the total runtime and returns it"""
 
     tasks = []
-    intTime = time.time()
+    initTime = time.time()
 
     for i in range(4):
         tasks.append(asyncio.create_task(async_comprehension()))
