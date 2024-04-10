@@ -33,5 +33,3 @@ class TestGithubOrgClient(unittest.TestCase):
         mock.return_value = MagicMock(return_value=resp)
         self.assertEqual(GithubOrgClient(org).org(), resp)
         mock.assert_called_once_with("https://api.github.com/orgs/{}".format(org))
-
-
