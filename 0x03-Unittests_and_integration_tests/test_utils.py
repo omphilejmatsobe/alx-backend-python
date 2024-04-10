@@ -90,6 +90,9 @@ class TestMemoize(unittest.TestCase):
                 return self.a_method()
 
         with patch.object(TestClass, 'a_method') as mock:
+            """
+            perfoms function calls
+            """
             _class = TestClass()
             _class.a_property()
             _class.a_property()
