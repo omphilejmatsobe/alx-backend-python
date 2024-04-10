@@ -78,12 +78,14 @@ class TestMemoize(unittest.TestCase):
 
             def a_method(self):
                 """
+                returns the result of the methos
                 """
                 return 42
 
             @memoize
             def a_property(self):
                 """
+                return method call
                 """
                 return self.a_method()
 
