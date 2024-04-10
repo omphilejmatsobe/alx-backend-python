@@ -73,7 +73,6 @@ class TestMemoize(unittest.TestCase):
         assert_called_once
         """
 
-
         class TestClass:
             """
             TestClass for wrapping memoize
