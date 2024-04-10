@@ -73,27 +73,18 @@ class TestMemoize(unittest.TestCase):
 
         class TestClass:
             """
-            TestClass
+            TestClass for wrapping with memoize
             """
 
             def a_method(self):
-                """
-                returns the result of the methos
-                """
                 return 42
 
             @memoize
             def a_property(self):
-                """
-                return method call
-                """
                 return self.a_method()
 
         with patch.object(TestClass, 'a_method') as mock:
-            """
-            perfoms function calls
-            """
-            _class = TestClass()
-            _class.a_property()
-            _class.a_property()
+            test_class = TestClass()
+            test_class.a_property()
+            test_class.a_property()
             mock.assert_called_once()
