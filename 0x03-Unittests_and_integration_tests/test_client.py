@@ -23,6 +23,5 @@ class TestGithubOrgClient(unittest.TestCase):
         """
         Test that GithubOrgClient.org returns the correct value
         """
-        test_class = GithubOrgClient(input)
-        test_class.org()
+        GithubOrgClient(input).org()
         mock.assert_called_once_with(f'https://api.github.com/orgs/{input}')
