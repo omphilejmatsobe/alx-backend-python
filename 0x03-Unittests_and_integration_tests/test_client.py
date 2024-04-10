@@ -15,13 +15,12 @@ class TestGithubOrgClient(unittest.TestCase):
     """
 
     @parameterized.expand([
-        ('google'),
-        ('abc')
+        ("google", {'login': "google"}),
+        ("abc", {'login': "abc"}),
     ])
-    @patch('client.get_json')
-    def test_org(self, input, mock):
-        """
-        Test that GithubOrgClient.org returns the correct value
-        """
-        GithubOrgClient(input).org()
-        mock.assert_called_once_with(f'https://api.github.com/orgs/{input}')
+    @patch("client.get_json")
+    def test_org(self, org: str, resp: Dict, mock: MagicMock) -> None:
+        """Tests the `org` method."""
+        mock.return_value = MagicMock(return_value=resp)
+        self.assertEqual(GithubOrgClient(org).org(), resp)
+        mock.assert_called_once_with("https://api.github.com/orgs/{}".format(org))
