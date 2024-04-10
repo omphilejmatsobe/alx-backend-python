@@ -68,12 +68,15 @@ class TestMemoize(unittest.TestCase):
 
     def test_memoize(self):
         """
-        Function for testing memoize
+        Tests when calling a_property twice the correct result
+        is returned when a_method is only called once using
+        assert_called_once
         """
+
 
         class TestClass:
             """
-            TestClass for wrapping with memoize
+            TestClass for wrapping memoize
             """
 
             def a_method(self):
