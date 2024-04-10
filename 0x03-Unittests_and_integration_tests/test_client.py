@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
-""" Module for testing client """
+"""
+Module for testing client
+"""
 
 import json
 import unittest
 from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
-from unittest.mock import patch, PropertyMock, Mock
 from parameterized import parameterized, parameterized_class
+
+from typing import Dict
+from unittest.mock import (
+    MagicMock,
+    Mock,
+    PropertyMock,
+    patch,
+)
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -24,3 +33,5 @@ class TestGithubOrgClient(unittest.TestCase):
         mock.return_value = MagicMock(return_value=resp)
         self.assertEqual(GithubOrgClient(org).org(), resp)
         mock.assert_called_once_with("https://api.github.com/orgs/{}".format(org))
+
+
